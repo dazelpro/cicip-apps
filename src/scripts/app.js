@@ -1,18 +1,19 @@
 class App {
-    constructor({ openbtn, closebtn }) {
-        this._openbtn = openbtn;
-        this._closebtn = closebtn;
+    constructor({ openBtn, closeBtn, sideNav }) {
+        this._openBtn = openBtn;
+        this._closeBtn = closeBtn;
+        this._sideNav = sideNav;
         this.onLoad();
     }
 
     onLoad() {
-        this._openbtn.addEventListener('click', (event) => {
-            document.getElementById("mySidenav").style.width = "250px";
+        this._openBtn.addEventListener('click', (event) => {
+            this._sideNav.style.width = "250px";
             event.stopPropagation();
         });
 
-        this._closebtn.addEventListener('click', (event) => {
-            document.getElementById("mySidenav").style.width = "0";
+        this._closeBtn.addEventListener('click', (event) => {
+            this._sideNav.style.width = "0";
             event.stopPropagation();
         });
     }

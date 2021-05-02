@@ -9,6 +9,7 @@ import App from './app';
 console.log('Hello Coders! :)');
 
 const app = new App({
-    openbtn: document.querySelector('#openNav'),
-    closebtn: document.querySelector('.main')
+    openBtn: document.querySelector('#openNav'),
+    closeBtn: document.querySelector('#closeNav'),
+    sideNav: document.querySelector('.sidenav')
 });
