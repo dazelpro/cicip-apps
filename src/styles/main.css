@@ -1,3 +1,189 @@
-img {
-    display: block;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+/* CSS Testing untuk layout */
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  transition: all 0.5s ease;
+  margin: 0px;
+  padding: 0px;
+  min-height: 90vh;
+  font-family: "Rubik", sans-serif;
+  background-color: #eeeeee;
+}
+
+.box div {
+  border: 1px dashed black;
+  padding: 16px;
+  background-color: white;
+}
+
+.box {
+  padding: 8px;
+  background-color: antiquewhite;
+  border: 1px dashed black;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  background-color: #00adb5;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.logo {
+  width: 100px;
+  vertical-align: middle;
+}
+
+.menu-item a {
+  vertical-align: -webkit-baseline-middle;
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  background-color: transparent;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.item-sp {
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.menu-item .item-sp:hover {
+  background-color: #393e46;
+  border: 1px solid #393e46;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #393e46;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .close-sidenav {
+  position: absolute;
+  top: 7px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.jumbroton {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  height: 100%;
+}
+
+.jumbroton > .blur {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 190px 0px;
+}
+
+.blur > h1 {
+  padding-bottom: 20px;
+}
+
+.blur > a {
+  padding: 15px 50px;
+  border: 1px solid;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.blur > a:hover {
+  background-color: #00adb5;
+  border: 1px solid #00adb5;
+}
+
+@media only screen and (min-width: 579px) {
+  .menu-item > .item-icon-menu {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .menu-item > .item,
+  .item-sp {
+    display: none;
+  }
+}
+
+section {
+  padding-top: 25px;
+}
+section > h2 {
+  text-align: center;
+  font-size: 24px !important;
+}
+section > h2, p {
+  text-align: center;
+  font-size: 17px;
+}
+
+@media only screen and (min-width: 1600px) {
+  .wrapper {
+    margin: 0 10% 0 10%;
+  }
+  
+  .toolbar {
+    padding: 0 10% 0 10%;
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+  .wrapper {
+    margin: 0 5% 0 5%;
+  }
+  
+  .toolbar {
+    padding: 0 5% 0 5%;
+  }
+}
+
+.card {
+  background-color: white;
+  margin: 10px;
+}
+
+footer {
+  background-color: #aad8d3;
+  padding: 0;
+  text-align: center;
+}
+
+footer > div {
+  padding: 20px;
 }
