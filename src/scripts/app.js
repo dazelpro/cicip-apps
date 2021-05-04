@@ -1,8 +1,10 @@
 class App {
-    constructor({ openBtn, closeBtn, sideNav }) {
+    constructor({ openBtn, closeBtn, sideNav, contentList, dataResto }) {
         this._openBtn = openBtn;
         this._closeBtn = closeBtn;
         this._sideNav = sideNav;
+        this._dataResto = dataResto;
+        this._contentList = contentList;
         this.onLoad();
     }
 
@@ -16,6 +18,24 @@ class App {
             this._sideNav.style.width = "0";
             event.stopPropagation();
         });
+    }
+
+    readJSON() {
+        const resto = this._dataResto['default']['restaurants'];
+        let listResto = '';
+        resto.forEach((d) => {
+            listResto += `
+            <div class="card">
+                <img src="${d.pictureId}" alt="asdasdasd">
+                <div class="card-body">
+                    <div class="city">Kota ${d.city}</div>
+                    <div class="name">${d.name}</div>
+                    <div class="desc">${d.description.substring(0,80)+'...'}</div>
+                </div>
+            </div>
+            `
+        });
+        this._contentList.innerHTML = listResto;
     }
 }
 

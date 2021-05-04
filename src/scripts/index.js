@@ -4,12 +4,18 @@ import '../styles/small.css';
 import '../styles/medium.css';
 import '../styles/large.css';
 import '../styles/xlarge.css';
+import * as data from '../DATA.json';
 import App from './app';
 
-console.log('Hello Coders! :)');
+console.log('Halo...');
 
 const app = new App({
     openBtn: document.querySelector('#openNav'),
     closeBtn: document.querySelector('#closeNav'),
-    sideNav: document.querySelector('.sidenav')
+    sideNav: document.querySelector('.sidenav'),
+    contentList: document.querySelector('#contentList'),
+    dataResto: data
 });
+
+const resultData = app.readJSON();
+window.onload = resultData;
