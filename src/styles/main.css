@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
-/* CSS Testing untuk layout */
 
 *,
 *::before,
@@ -223,10 +222,11 @@ p {
 .name a {
   text-decoration: none;
   color: black;
+  transition: color 0.3s ease;
 }
 
 .name a:hover {
-  color: rgb(8, 8, 177);
+  color: #f58634;
 }
 
 .rating {
