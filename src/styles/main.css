@@ -228,15 +228,11 @@ p {
 .name {
   font-size: 17px;
   font-weight: 600;
-}
-
-.name a {
-  text-decoration: none;
   color: black;
   transition: color 0.3s ease;
 }
 
-.name a:hover {
+.name:hover {
   color: #f58634;
 }
 
