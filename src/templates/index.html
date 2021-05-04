@@ -10,24 +10,27 @@
 </head>
 
 <body>
-    <div class="toolbar">
-        <div>
-            <img class="logo" src="./logo/logo.png" alt="Logo Cicip">
+    <a href="#maincontent" class="skip-link">Menuju ke konten</a>
+    <header>
+        <div class="toolbar">
+            <div>
+                <img class="logo" src="./logo/logo.png" alt="Logo Cicip">
+            </div>
+            <div class="menu-item">
+                <a class="item" href="/">Home</a>
+                <a class="item" href="#">Favorite</a>
+                <a class="item-sp" href="https://github.com/dazelpro" target="_blank" rel="noreferrer">About Us</a>
+                <a class="item-icon-menu" href="javascript:void(0)" id="openNav">&#9776;</a>
+            </div>
         </div>
-        <div class="menu-item">
-            <a class="item" href="/">Home</a>
-            <a class="item" href="#">Favorite</a>
-            <a class="item-sp" href="https://github.com/dazelpro" target="_blank" rel="noreferrer">About Us</a>
-            <a class="item-icon-menu" href="javascript:void(0)" id="openNav">&#9776;</a>
-        </div>
-    </div>
 
-    <div class="sidenav">
-        <a href="javascript:void(0)" class="close-sidenav" id="closeNav">&times;</a>
-        <a href="/">Home</a>
-        <a href="#">Favorite</a>
-        <a href="https://github.com/dazelpro" target="_blank" rel="noreferrer">About</a>
-    </div>
+        <div class="sidenav">
+            <a href="javascript:void(0)" class="close-sidenav" id="closeNav">&times;</a>
+            <a href="/">Home</a>
+            <a href="#">Favorite</a>
+            <a href="https://github.com/dazelpro" target="_blank" rel="noreferrer">About</a>
+        </div>
+    </header>
 
     <div class="jumbroton" style="background-image: url(./images/heros/hero-image_4.jpg);">
         <div class="blur">
@@ -36,9 +39,11 @@
         </div>
     </div>
 
-    <section>
-        <h2>Explore Restaurant</h2>
-        <p>Lihat makanan-makanan enak dan pilih yang kamu suka.</p>
+    <section id="maincontent">
+        <div class="section-title">
+            <h2>Explore Restaurant</h2>
+            <p>Lihat makanan-makanan enak dan pilih yang kamu suka.</p>
+        </div>
         <div class="wrapper col-4" id="contentList"></div>
     </section>
 

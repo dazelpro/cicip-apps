@@ -26,11 +26,12 @@ class App {
         resto.forEach((d) => {
             listResto += `
             <div class="card">
-                <img src="${d.pictureId}" alt="asdasdasd">
+                <img src="${d.pictureId}" alt="${d.name}">
                 <div class="card-body">
                     <div class="city">Kota ${d.city}</div>
-                    <div class="name">${d.name}</div>
-                    <div class="desc">${d.description.substring(0,80)+'...'}</div>
+                    <div class="name"><a href="#">${d.name}</a></div>
+                    <div class="rating">⭐ ${d.rating}</div>
+                    <div>${d.description.substring(0,80)+'...'}</div>
                 </div>
             </div>
             `
