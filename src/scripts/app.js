@@ -25,15 +25,15 @@ class App {
         let listResto = '';
         resto.forEach((d) => {
             listResto += `
-            <div class="card">
+            <a href="#" class="card">
                 <img src="${d.pictureId}" alt="${d.name}">
                 <div class="card-body">
                     <div class="city">Kota ${d.city}</div>
-                    <div class="name"><a href="#">${d.name}</a></div>
+                    <div class="name">${d.name}</div>
                     <div class="rating">⭐ ${d.rating}</div>
                     <div>${d.description.substring(0,80)+'...'}</div>
                 </div>
-            </div>
+            </a>
             `
         });
         this._contentList.innerHTML = listResto;
