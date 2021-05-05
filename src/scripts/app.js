@@ -31,7 +31,7 @@ class App {
                     <div class="city">Kota ${d.city}</div>
                     <div class="name">${d.name}</div>
                     <div class="rating">⭐ ${d.rating}</div>
-                    <div>${d.description.substring(0,80)+'...'}</div>
+                    <div class="desc">${d.description}</div>
                 </div>
             </a>
             `
