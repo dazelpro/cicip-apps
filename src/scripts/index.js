@@ -4,18 +4,20 @@ import '../styles/small.css';
 import '../styles/medium.css';
 import '../styles/large.css';
 import '../styles/xlarge.css';
-import * as data from '../DATA.json';
 import App from './app';
-
-console.log('Halo...');
 
 const app = new App({
     openBtn: document.querySelector('#openNav'),
     closeBtn: document.querySelector('#closeNav'),
     sideNav: document.querySelector('.sidenav'),
-    contentList: document.querySelector('#contentList'),
-    dataResto: data
+    mainContent: document.querySelector('#maincontent'),
 });
 
-const resultData = app.readJSON();
-window.onload = resultData;
+window.addEventListener('hashchange', () => {
+    app.renderPage();
+});
+
+window.addEventListener('load', () => {
+    app.renderPage();
+    // swRegister();
+});
