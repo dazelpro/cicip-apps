@@ -4,7 +4,13 @@ import CONFIG from '../controllers/configuration';
 const Home = {
     async render() {
         return `
-            <div class="section-title">
+            <div class="jumbroton" style="background-image: url(./images/heros/hero-image_4.jpg);">
+                <div class="blur">
+                    <h1>Cicip macam-macam makanan terenak dari berbagai Resto di Nusantara</h1>
+                    <a href="#contentbody">Explore</a>
+                </div>
+            </div>
+            <div class="section-title" id="contentbody">
                 <h2>Explore Restaurant</h2>
                 <p>Lihat makanan-makanan enak dan pilih yang kamu suka.</p>
             </div>
