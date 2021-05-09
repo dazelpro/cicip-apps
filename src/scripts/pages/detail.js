@@ -55,16 +55,16 @@ const Detail = {
             reviewList += `
             <div class="review-layout">
                 <div class="review-image">
-                    <img class="review-user-image" src="./images/user.jpg" alt="User ${d.name}">
+                    <img class="review-user-image" src="./images/user.jpg" alt="User ${d.name || 'Anonymous'}">
                 </div> 
                 <div class="review-content">
                     <div class="review-user-name">
-                        ${d.name}
+                        ${d.name || 'Anonymous'}
                     </div>
                     <div class="review-user-date">
                         ${d.date}
                     </div>
-                    <div class="review-user-value">${d.review}</div>
+                    <div class="review-user-value">${d.review || 'Komentar mengandung spam'}</div>
                 </div>
             </div>
             `;
@@ -92,9 +92,9 @@ const Detail = {
 
                     <div class="desc-title">Deskripsi:</div>
                     <div class="desc-value partial" id="desc">${data.restaurant.description}</div>
-                    <a href="javascript:void(0)" onclick="klikSelengkapnya()" id="btnSelengkapnya"
+                    <a href="javascript:void(0)" id="btnSelengkapnya"
                         class="desc-full show">Selengkapnya</a>
-                    <a href="javascript:void(0)" onclick="klikSembunyi()" id="btnSembunyi"
+                    <a href="javascript:void(0)" id="btnSembunyi"
                         class="desc-secret hide">Sembunyikan</a>
                 </div>
             </div>
@@ -124,6 +124,28 @@ const Detail = {
         `;
 
         document.querySelector('#detailcontents').innerHTML = componentDetail;
+
+        document.querySelector('#btnSelengkapnya').addEventListener('click', (event) => {
+            const elementDesc = document.getElementById('desc');
+            const elementBtnSelengkapnya = document.getElementById('btnSelengkapnya');
+            const elementBtnSembunyi = document.getElementById('btnSembunyi');
+
+            elementDesc.className = elementDesc.className.replace(/\bpartial\b/g, 'full');
+            elementBtnSelengkapnya.className = elementBtnSelengkapnya.className.replace(/\bshow\b/g, 'hide');
+            elementBtnSembunyi.className = elementBtnSembunyi.className.replace(/\bhide\b/g, 'show');
+            event.stopPropagation();
+        });
+
+        document.querySelector('#btnSembunyi').addEventListener('click', (event) => {
+            const elementDesc = document.getElementById('desc');
+            const elementBtnSelengkapnya = document.getElementById('btnSelengkapnya');
+            const elementBtnSembunyi = document.getElementById('btnSembunyi');
+
+            elementDesc.className = elementDesc.className.replace(/\bfull\b/g, 'partial');
+            elementBtnSelengkapnya.className = elementBtnSelengkapnya.className.replace(/\bhide\b/g, 'show');
+            elementBtnSembunyi.className = elementBtnSembunyi.className.replace(/\bshow\b/g, 'hide');
+            event.stopPropagation();
+        });
 
         // document.querySelector('#restoName').innerHTML = 'DETAIL RESTORAN';
         // document.querySelector('#detail').innerHTML = dataDetail;
