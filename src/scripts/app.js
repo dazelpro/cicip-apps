@@ -28,6 +28,7 @@ class App {
     }
 
     async renderPage() {
+        this._SideNav.style.width = '0';
         const url = UrlParser.parseActiveUrlWithCombiner();
         const page = routes[url];
         this._MainContent.innerHTML = await page.render();

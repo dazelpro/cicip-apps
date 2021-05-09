@@ -205,6 +205,26 @@ p {
   }
 }
 
+@media only screen and (max-width: 1019px) {
+  /* .wrapper {
+    margin: 0 2% 0 2%;
+  } */
+
+  .toolbar {
+    padding: 0 2% 0 2%;
+  }
+
+  .breadcrumb div {
+    padding: 0 2% 0 2%;
+  }
+
+  .food-title,
+  .drink-title,
+  .review-title {
+    padding: 0 2% 0 2%;
+  }
+}
+
 .card {
   background-color: white;
   margin: 10px;
