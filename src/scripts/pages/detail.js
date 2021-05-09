@@ -53,13 +53,20 @@ const Detail = {
 
         data.restaurant.customerReviews.forEach((d) => {
             reviewList += `
-            <table class="review-item" width="100%" border="1">
-                <tr>
-                    <td width="1%"><img src="./images/user.jpg" alt="User"></td>
-                    <td valign="top" width="16%"><span>${d.name || 'Anonymous'}</span></td>
-                    <td valign="top"><span>${d.review}</span></td>
-                </tr>
-            </table>
+            <div class="review-layout">
+                <div class="review-image">
+                    <img class="review-user-image" src="./images/user.jpg" alt="User ${d.name}">
+                </div> 
+                <div class="review-content">
+                    <div class="review-user-name">
+                        ${d.name}
+                    </div>
+                    <div class="review-user-date">
+                        ${d.date}
+                    </div>
+                    <div class="review-user-value">${d.review}</div>
+                </div>
+            </div>
             `;
         });
 
@@ -110,7 +117,9 @@ const Detail = {
                         <img src="./images/star.png" alt="Star Review">
                     </div>
                 </div>
-                ${reviewList}
+                <div class="mt-50 mb-50">
+                    ${reviewList}
+                </div>
             </div>
         `;
 
