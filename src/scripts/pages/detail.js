@@ -71,7 +71,7 @@ const Detail = {
                 </div>
             </div>
 
-            <div class="wrapper col-2" id="contentbody" style="margin-top: 50px;">
+            <div class="wrapper col-2" id="contentbody">
                 <div class="img-banner">
                     <img src="${CONFIG.BASE_IMAGE_URL_MEDIUM + data.restaurant.pictureId}" alt="Banner Resto">
                 </div>

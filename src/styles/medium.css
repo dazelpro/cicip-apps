@@ -10,4 +10,12 @@
   .logo {
     margin-left: 0;
   }
+
+  #contentbody {
+    margin-top: 40px;
+  }
+
+  .breadcrumb {
+    display: block;
+  }
 }
