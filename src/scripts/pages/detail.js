@@ -7,75 +7,117 @@ import UrlParser from '../routes/url-parser';
 const Detail = {
     async render() {
         return `
-        <section class="content">
-            <div class="latest">
-                <h1 id="restoName"></h1>
-                <div class="detail-content" id="detail"></div>
-                <div id="likeButtonContainer"></div>
-            </div>
-        </section>
+            <div id="detailcontents"></div>
         `;
     },
 
     async afterRender() {
         const url = UrlParser.parseActiveUrlWithoutCombiner();
-        let dataDetail = '';
+        let componentDetail = '';
         let listCategory = '';
-        let listMakanan = '';
-        let listMinuman = '';
-        let listReview = '';
+        let foodList = '';
+        let drinkList = '';
+        let reviewList = '';
         const data = await sourceData.detailResto(url.id);
-        // console.log(data)
-        data.restaurant.categories.forEach((data) => {
+        console.log(data.restaurant);
+
+        data.restaurant.categories.forEach((d) => {
             listCategory += `
-                <div class="tag">${data.name}</div>
+                <div class="category-item">
+                    <span class="tjb-title">${d.name}</span>
+                </div>
             `;
         });
-        data.restaurant.menus.foods.forEach((data) => {
-            listMakanan += `
-                ${data.name},
+
+        data.restaurant.menus.foods.forEach((d) => {
+            foodList += `
+                <div class="food-card">
+                    <div class="food-card-body">
+                        <img src="./images/foods.jpg" alt="${d.name}">
+                        <span>${d.name}</span>
+                    </div>
+                </div>
             `;
         });
-        data.restaurant.menus.drinks.forEach((data) => {
-            listMinuman += `
-                ${data.name},
+
+        data.restaurant.menus.drinks.forEach((d) => {
+            drinkList += `
+                <div class="food-card">
+                    <div class="food-card-body">
+                        <img src="./images/drinks.jpg" alt="${d.name}">
+                        <span>${d.name}</span>
+                    </div>
+                </div>
             `;
         });
-        data.restaurant.consumerReviews.forEach((data) => {
-            listReview += `
-            <div class="review-card">
-                <p><b>${data.name}</b> - ${data.date}</p>
-                <p>${data.review}</p>
-            </div>
+
+        data.restaurant.customerReviews.forEach((d) => {
+            reviewList += `
+            <table class="review-item" width="100%" border="1">
+                <tr>
+                    <td width="1%"><img src="./images/user.jpg" alt="User"></td>
+                    <td valign="top" width="16%"><span>${d.name || 'Anonymous'}</span></td>
+                    <td valign="top"><span>${d.review}</span></td>
+                </tr>
+            </table>
             `;
         });
-        dataDetail += `
-            <div class="list_item">
-                <img class="list_item_img" src="${CONFIG.BASE_IMAGE_URL_MEDIUM + data.restaurant.pictureId}" alt="${data.restaurant.name}" title="${data.restaurant.name}">
-                <div class="city">${data.restaurant.city}</div>
-                <div class="list_item_content" style="text-align:left;">
-                    <p class="list_item_rating">
-                        Rating : 
-                        <a href="#" class="list_item_rating_value">${data.restaurant.rating}</a>
-                    </p>
-                    <h2>${data.restaurant.name}</h2>
-                    <p class="alamat">${data.restaurant.address}</p>
-                    <div class="list_item_desc_detail">${data.restaurant.description}</div>
-                    <br>
-                    <h2>Menu</h2>
-                    <div style="margin-top:10px;margin-bottom:20px">${listCategory}</div>
-                    <h3>Makanan</h3>
-                    <div style="margin-top:10px;margin-bottom:20px">${listMakanan}</div>
-                    <h3>Minuman</h3>
-                    <div style="margin-top:10px;margin-bottom:20px">${listMinuman}</div>
-                    <h2>Review</h2>
-                    <p>Apa kata mereka yang sudah pernah berkunjung ke sini?</p>
-                    <div style="margin-top:-15px;margin-bottom:20px; padding-top:20px;padding-bottom:20px">${listReview}</div>
+
+        componentDetail += `
+            <div class="breadcrumb">
+                <div>
+                    <a class="page-home" href="/#">Daftar Restoran</a> /
+                    <a class="page-now" href="javascript:void(0)">${data.restaurant.name}</a>
                 </div>
             </div>
+
+            <div class="wrapper col-2" id="contentbody" style="margin-top: 50px;">
+                <div class="img-banner">
+                    <img src="${CONFIG.BASE_IMAGE_URL_MEDIUM + data.restaurant.pictureId}" alt="Banner Resto">
+                </div>
+                <div class="detail-title">
+                    <h1>${data.restaurant.name}</h1>
+                    <div>
+                        ${listCategory}
+                    </div>
+                    <div class="address-title">Alamat:</div>
+                    <div class="address-value">${data.restaurant.address} - ${data.restaurant.city}</div>
+
+                    <div class="desc-title">Deskripsi:</div>
+                    <div class="desc-value partial" id="desc">${data.restaurant.description}</div>
+                    <a href="javascript:void(0)" onclick="klikSelengkapnya()" id="btnSelengkapnya"
+                        class="desc-full show">Selengkapnya</a>
+                    <a href="javascript:void(0)" onclick="klikSembunyi()" id="btnSembunyi"
+                        class="desc-secret hide">Sembunyikan</a>
+                </div>
+            </div>
+
+            <div class="food-title">Makanan:</div>
+            <div class="wrapper col-4">
+                ${foodList}
+            </div>
+
+            <div class="drink-title">Minuman:</div>
+            <div class="wrapper col-4">
+                ${drinkList}
+            </div>
+
+            <div class="review-title">Penilaian:</div>
+            <div class="wrapper col-1">  
+                <div class="review">
+                    <span>${data.restaurant.rating}</span> dari 5
+                    <div class="star">
+                        <img src="./images/star.png" alt="Star Review">
+                    </div>
+                </div>
+                ${reviewList}
+            </div>
         `;
-        document.querySelector('#restoName').innerHTML = 'DETAIL RESTORAN';
-        document.querySelector('#detail').innerHTML = dataDetail;
+
+        document.querySelector('#detailcontents').innerHTML = componentDetail;
+
+        // document.querySelector('#restoName').innerHTML = 'DETAIL RESTORAN';
+        // document.querySelector('#detail').innerHTML = dataDetail;
 
         // LikeButtonInitiator.init({
         //     likeButtonContainer: document.querySelector('#likeButtonContainer'),

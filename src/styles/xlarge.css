@@ -2,4 +2,12 @@
   .col-4 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+
+  .col-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
 }

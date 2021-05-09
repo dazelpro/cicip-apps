@@ -1,4 +1,14 @@
+.col-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .col-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.col-2 {
   display: grid;
   grid-template-columns: 1fr;
 }
