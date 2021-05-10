@@ -537,3 +537,33 @@ footer > div {
 .mb-50 {
   margin-bottom: 50px;
 }
+
+#containerFavorite {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* border: solid 1px #000; */
+}
+
+#titleResto {
+  width: 90%;
+}
+
+#titleResto h1 {
+  line-height: 0;
+  margin-top: 11px;
+  font-size: 28px;
+}
+
+#likeButtonContainer {
+  width: 10%;
+  text-align: right;
+}
+
+.btn-favorite {
+  background: transparent;
+  border: none;
+  padding: 10px;
+  margin-top: -9px;
+  cursor: pointer;
+}

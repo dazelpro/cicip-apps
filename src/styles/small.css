@@ -37,10 +37,6 @@
     box-shadow: none;
   }
 
-  .detail-title > h1 {
-    margin-top: 30px;
-  }
-
   .food-card {
     margin: 0 12px;
   }
@@ -50,4 +46,13 @@
   .review-title {
     margin-left: 10px;
   }
+
+  #containerFavorite {
+    margin-top: 30px;
+  }
+
+  .btn-favorite {
+    margin-top: -13px;
+  }
+  
 }

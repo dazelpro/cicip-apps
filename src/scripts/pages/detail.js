@@ -1,8 +1,8 @@
 /* eslint-disable no-shadow */
 import sourceData from '../controllers/source';
 import CONFIG from '../controllers/configuration';
-import UrlParser from '../routes/url-parser';
-// import LikeButtonInitiator from '../like-button-initiator';
+import UrlParser from '../routes/url.parser';
+import LikeButtonInitiator from '../initiator.favorite';
 
 const Detail = {
     async render() {
@@ -53,7 +53,7 @@ const Detail = {
 
         data.restaurant.customerReviews.forEach((d) => {
             reviewList += `
-            <div class="review-layout">
+            <div class="review-layout" id="ree">
                 <div class="review-image">
                     <img class="review-user-image" src="./images/user.jpg" alt="User ${d.name || 'Anonymous'}">
                 </div> 
@@ -83,8 +83,15 @@ const Detail = {
                     <img src="${CONFIG.BASE_IMAGE_URL_MEDIUM + data.restaurant.pictureId}" alt="Banner Resto">
                 </div>
                 <div class="detail-title">
-                    <h1>${data.restaurant.name}</h1>
-                    <div>
+                
+                    <div id="containerFavorite">
+                        <div id="titleResto">
+                            <h1>${data.restaurant.name} </h1>
+                        </div>
+                        <div id="likeButtonContainer"></div>
+                    </div>
+
+                    <div style="margin-top: 10px;">
                         ${listCategory}
                     </div>
                     <div class="address-title">Alamat:</div>
@@ -147,20 +154,17 @@ const Detail = {
             event.stopPropagation();
         });
 
-        // document.querySelector('#restoName').innerHTML = 'DETAIL RESTORAN';
-        // document.querySelector('#detail').innerHTML = dataDetail;
-
-        // LikeButtonInitiator.init({
-        //     likeButtonContainer: document.querySelector('#likeButtonContainer'),
-        //     data: {
-        //         id: data.restaurant.id,
-        //         name: data.restaurant.name,
-        //         description: data.restaurant.description,
-        //         rating: data.restaurant.rating,
-        //         pictureId: data.restaurant.pictureId,
-        //         city: data.restaurant.city,
-        //     },
-        // });
+        LikeButtonInitiator.init({
+            likeButtonContainer: document.querySelector('#likeButtonContainer'),
+            data: {
+                id: data.restaurant.id,
+                name: data.restaurant.name,
+                description: data.restaurant.description,
+                rating: data.restaurant.rating,
+                pictureId: data.restaurant.pictureId,
+                city: data.restaurant.city,
+            },
+        });
     },
 };
 
