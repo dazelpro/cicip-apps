@@ -1,18 +1,62 @@
-.col-4 {
-  display: grid;
-  grid-template-columns: 1fr;
-}
+@media only screen and (max-width: 649px) {
+  .col-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 
-.logo {
-  margin-left: 15px;
-}
+  .col-4 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 
-.item-sp {
-  margin-right: 15px;
-}
+  .col-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 
-.item-icon-menu {
-  font-size: 22px;
-  cursor: pointer;
-  margin-right: 5px;
+  .logo {
+    margin-left: 15px;
+  }
+
+  .item-sp {
+    margin-right: 15px;
+  }
+
+  .item-icon-menu {
+    font-size: 22px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+
+  .breadcrumb {
+    display: none;
+  }
+
+  .img-banner > img {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .food-card {
+    margin: 0 12px;
+  }
+
+  .food-title,
+  .drink-title,
+  .review-title {
+    margin-left: 10px;
+  }
+
+  #containerFavorite {
+    margin-top: 30px;
+  }
+
+  .btn-favorite {
+    margin-top: -13px;
+  }
+
+  .favorite-title h1, div {
+    text-align: center;
+  }
+  
 }

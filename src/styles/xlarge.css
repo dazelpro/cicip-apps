@@ -1,5 +1,15 @@
 @media only screen and (min-width: 1200px) {
   .col-4 {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .col-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .logo {
+    margin-left: 0;
   }
 }

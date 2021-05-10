@@ -1,42 +1,38 @@
+import UrlParser from './routes/url.parser';
+import routes from './routes/router';
+
 class App {
-    constructor({ openBtn, closeBtn, sideNav, contentList, dataResto }) {
-        this._openBtn = openBtn;
-        this._closeBtn = closeBtn;
-        this._sideNav = sideNav;
-        this._dataResto = dataResto;
-        this._contentList = contentList;
+    constructor({
+        openBtn,
+        closeBtn,
+        sideNav,
+        mainContent,
+    }) {
+        this._OpenBtn = openBtn;
+        this._CloseBtn = closeBtn;
+        this._SideNav = sideNav;
+        this._MainContent = mainContent;
         this.onLoad();
     }
 
     onLoad() {
-        this._openBtn.addEventListener('click', (event) => {
-            this._sideNav.style.width = "250px";
+        this._OpenBtn.addEventListener('click', (event) => {
+            this._SideNav.style.width = '250px';
             event.stopPropagation();
         });
 
-        this._closeBtn.addEventListener('click', (event) => {
-            this._sideNav.style.width = "0";
+        this._CloseBtn.addEventListener('click', (event) => {
+            this._SideNav.style.width = '0';
             event.stopPropagation();
         });
     }
 
-    readJSON() {
-        const resto = this._dataResto['default']['restaurants'];
-        let listResto = '';
-        resto.forEach((d) => {
-            listResto += `
-            <a href="#" class="card">
-                <img src="${d.pictureId}" alt="${d.name}">
-                <div class="card-body">
-                    <div class="city">Kota ${d.city}</div>
-                    <div class="name">${d.name}</div>
-                    <div class="rating">⭐ ${d.rating}</div>
-                    <div class="desc">${d.description}</div>
-                </div>
-            </a>
-            `
-        });
-        this._contentList.innerHTML = listResto;
+    async renderPage() {
+        this._SideNav.style.width = '0';
+        const url = UrlParser.parseActiveUrlWithCombiner();
+        const page = routes[url];
+        this._MainContent.innerHTML = await page.render();
+        await page.afterRender();
     }
 }
 
