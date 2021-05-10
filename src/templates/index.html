@@ -37,7 +37,7 @@
     </header>
 
     <section id="maincontent"></section>
-    
+
     <footer>
         <div>
             Copyright © 2020 - Cicip Apps
@@ -46,7 +46,27 @@
     <script>
     </script>
     <style>
-        
+        body {
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        body {
+            position: relative;
+        }
+
+        body::after {
+            content: '';
+            display: block;
+            height: 50px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </body>
 

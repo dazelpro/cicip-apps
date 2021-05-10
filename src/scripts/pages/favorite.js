@@ -12,8 +12,8 @@ const Favorite = {
             </div>
             <div class="section-title" id="contentbody">
                 <div class="favorite-title">
-                    <h1>Favorite</h1>
-                    <div>Daftar Restoran yang kamu Sukai</div>
+                    <h1 class="fav-h1">Favorite</h1>
+                    <div class="fav-div">Daftar Restoran yang kamu Sukai</div>
                 </div>
                 <div class="wrapper col-4" id="contentList"></div>
                 <div class="no-data"></div>
