@@ -1,4 +1,4 @@
-import FavoriteIdb from './controllers/database';
+import FavoriteIdb from '../controllers/database';
 
 const LikeButtonInitiator = {
     async init({ likeButtonContainer, data }) {
@@ -10,7 +10,6 @@ const LikeButtonInitiator = {
 
     async _renderButton() {
         const { id } = this._data;
-        console.log(this._data);
         if (await this._isDataExist(id)) {
             this._renderLiked();
         } else {
@@ -19,8 +18,8 @@ const LikeButtonInitiator = {
     },
 
     async _isDataExist(id) {
-        const movie = await FavoriteIdb.getFavorite(id);
-        return !!movie;
+        const restoran = await FavoriteIdb.getFavorite(id);
+        return !!restoran;
     },
 
     _renderLike() {

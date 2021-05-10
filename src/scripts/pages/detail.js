@@ -2,7 +2,7 @@
 import sourceData from '../controllers/source';
 import CONFIG from '../controllers/configuration';
 import UrlParser from '../routes/url.parser';
-import LikeButtonInitiator from '../initiator.favorite';
+import LikeButtonInitiator from '../utils/initiator.favorite';
 
 const Detail = {
     async render() {
@@ -19,7 +19,6 @@ const Detail = {
         let drinkList = '';
         let reviewList = '';
         const data = await sourceData.detailResto(url.id);
-        console.log(data.restaurant);
 
         data.restaurant.categories.forEach((d) => {
             listCategory += `

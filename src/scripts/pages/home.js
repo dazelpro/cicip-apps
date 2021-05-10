@@ -20,7 +20,6 @@ const Home = {
 
     async afterRender() {
         const resto = await sourceData.listResto();
-        console.log(resto);
         let dataList = '';
         resto.restaurants.forEach((d) => {
             dataList += `
