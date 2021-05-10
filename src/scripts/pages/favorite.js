@@ -10,39 +10,37 @@ const Favorite = {
                     <a class="page-now" href="javascript:void(0)">Restoran Favorite</a>
                 </div>
             </div>
-            <div class="favorite-title">
-                <h1>Daftar Restoran yang kamu Sukai</h1>
-            </div>
             <div class="section-title" id="contentbody">
-                <div class="wrapper col-4" id="tes"></div>
+                <div class="favorite-title">
+                    <h1>Favorite</h1>
+                    <div>Daftar Restoran yang kamu Sukai</div>
+                </div>
+                <div class="wrapper col-4" id="contentList"></div>
+                <div class="no-data"></div>
             </div>
         `;
     },
 
     async afterRender() {
         const resto = await FavoriteIdb.getAllFavorite();
-        let dataList = '';
+        let listFavorite = '';
         if (resto.length === 0) {
-            document.querySelector('.resto-item__not__found').innerHTML = 'Tidak ada Restoran Favorite untuk ditampilkan';
+            document.querySelector('.no-data').innerHTML = 'Oops.. Belum ada Resto yang kamu sukai 😞';
         } else {
-            resto.forEach((data) => {
-                dataList += `
-                <div class="list_item">
-                    <!-- Load Gambar Lazy Loading -->
-                    <img class="list_item_thumb" loading="lazy" src="${CONFIG.BASE_IMAGE_URL_SMALL + data.pictureId}" alt="${data.name}" title="${data.name}">
-                    <div class="city">${data.city}</div>
-                    <div class="list_item_content">
-                        <p class="list_item_rating">
-                            Rating : 
-                            <a href="#" class="list_item_rating_value">${data.rating}</a>
-                        </p>
-                        <h1 class="list_item_title"><a href="/#/detail/${data.id}">${data.name}</a></h1>
-                        <div class="list_item_desc">${data.description.slice(0, 150)}...</div>
+            resto.forEach((d) => {
+                listFavorite += `
+                <a href="/#/detail/${d.id}" class="card">
+                    <img src="${CONFIG.BASE_IMAGE_URL_SMALL + d.pictureId}" alt="${d.name}">
+                    <div class="card-body">
+                        <div class="city">Kota ${d.city}</div>
+                        <div class="name">${d.name}</div>
+                        <div class="rating">⭐ ${d.rating}</div>
+                        <div class="desc">${d.description}</div>
                     </div>
-                </div>
+                </a>
                 `;
             });
-            document.querySelector('#tes').innerHTML = dataList;
+            document.querySelector('#contentList').innerHTML = listFavorite;
         }
     },
 };
