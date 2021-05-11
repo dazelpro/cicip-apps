@@ -16,7 +16,6 @@ const Favorite = {
                     <div class="fav-div">Daftar Restoran yang kamu Sukai</div>
                 </div>
                 <div class="wrapper col-4" id="contentList"></div>
-                <div class="no-data"></div>
             </div>
         `;
     },
@@ -29,10 +28,10 @@ const Favorite = {
             notifError += `
                 <div class="error">
                     <img class="img-error" src="./images/sad.svg" alt="Error">
-                    <h2 class="text-error">Ooops... Ada yang gak beres nih. Sabar ya, Tim kami sedang memperbaikinya.</h2>
+                    <h2 class="text-error">Maaf... Belum ada Resto yang kamu sukai.</h2>
                 </div>
             `;
-            document.querySelector('.no-data').innerHTML = notifError;
+            document.querySelector('#maincontent').innerHTML = notifError;
         } else {
             resto.forEach((d) => {
                 listFavorite += `
