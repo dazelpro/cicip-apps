@@ -58,5 +58,13 @@
   .fav-h1, .fav-div {
     text-align: center;
   }
+
+  .img-error {
+    width: 250px;
+  }
+
+  .text-error {
+    font-size: 18px;
+  }
   
 }

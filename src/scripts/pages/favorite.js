@@ -24,8 +24,15 @@ const Favorite = {
     async afterRender() {
         const resto = await FavoriteIdb.getAllFavorite();
         let listFavorite = '';
+        let notifError = '';
         if (resto.length === 0) {
-            document.querySelector('.no-data').innerHTML = 'Oops.. Belum ada Resto yang kamu sukai 😞';
+            notifError += `
+                <div class="error">
+                    <img class="img-error" src="./images/sad.svg" alt="Error">
+                    <h2 class="text-error">Ooops... Ada yang gak beres nih. Sabar ya, Tim kami sedang memperbaikinya.</h2>
+                </div>
+            `;
+            document.querySelector('.no-data').innerHTML = notifError;
         } else {
             resto.forEach((d) => {
                 listFavorite += `
