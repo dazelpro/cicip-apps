@@ -188,7 +188,8 @@ const Detail = {
         }
     },
     async postReview() {
-        await sourceData.addReview('uqzwm2m981kfw1e867', 'Arman', 'komentar 1');
+        const addReview = await sourceData.addReview('uqzwm2m981kfw1e867', 'Arman', 'komentar 1');
+        console.log(addReview.message);
     },
 };
 

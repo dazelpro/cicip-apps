@@ -39,7 +39,9 @@ const CacheHelper = {
 
     async _addCache(request) {
         const cache = await this._openCache();
-        cache.add(request);
+        if (request.method === 'GET') {
+            cache.add(request);
+        }
     },
 };
 
