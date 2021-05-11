@@ -17,6 +17,15 @@ body {
   min-height: 90vh;
   font-family: "Rubik", sans-serif;
   background-color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+}
+
+body::after {
+  content: "";
+  display: block;
+  height: 50px;
 }
 
 .skip-link {
@@ -312,6 +321,9 @@ footer {
   background-color: #0f3057;
   padding: 0;
   text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 footer > div {
@@ -603,7 +615,7 @@ footer > div {
   margin-bottom: 40px;
 }
 
-.no-data{
+.no-data {
   font-size: 30px;
   font-weight: 600;
   text-align: center;
