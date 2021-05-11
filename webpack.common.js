@@ -39,7 +39,7 @@ module.exports = {
             ],
         }),
         new ServiceWorkerWebpackPlugin({
-            entry: path.resolve(__dirname, 'src/scripts/pwa/sw.js'),
+            entry: path.resolve(__dirname, 'src/scripts/pwa/service.worker.js'),
         }),
     ],
 };

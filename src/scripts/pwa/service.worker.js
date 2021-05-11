@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import 'regenerator-runtime';
-import CacheHelper from './cache-helper';
+import CacheHelper from './cache.helper';
 
 const { assets } = global.serviceWorkerOption;
 
