@@ -10,6 +10,7 @@ const Home = {
                     <a href="#contentbody">Explore</a>
                 </div>
             </div>
+            <div id="loading"><img src="./images/loading.svg" alt="Loading..."></div>
             <div class="section-title" id="contentbody">
                 <h2>Explore Restaurant</h2>
                 <p>Lihat makanan-makanan enak dan pilih yang kamu suka.</p>
@@ -35,6 +36,7 @@ const Home = {
             `;
         });
         document.querySelector('#contentList').innerHTML = dataList;
+        document.querySelector('#loading').innerHTML = '';
     },
 };
 

@@ -7,6 +7,7 @@ import LikeButtonInitiator from '../utils/initiator.favorite';
 const Detail = {
     async render() {
         return `
+            <div id="loading"><img src="./images/loading.svg" alt="Loading..."></div>
             <div id="detailcontents"></div>
         `;
     },
@@ -130,6 +131,7 @@ const Detail = {
         `;
 
         document.querySelector('#detailcontents').innerHTML = componentDetail;
+        document.querySelector('#loading').innerHTML = '';
 
         document.querySelector('#btnSelengkapnya').addEventListener('click', (event) => {
             const elementDesc = document.getElementById('desc');
