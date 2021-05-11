@@ -8,6 +8,7 @@ const CONFIG = {
     DATABASE_NAME: 'db_cicip',
     DATABASE_VERSION: 1,
     OBJECT_STORE_NAME: 'favorite',
+    CACHE_NAME: new Date().toISOString(),
 };
 
 export default CONFIG;

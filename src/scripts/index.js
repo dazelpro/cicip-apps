@@ -5,6 +5,7 @@ import '../styles/medium.css';
 import '../styles/large.css';
 import '../styles/xlarge.css';
 import App from './app';
+import swRegister from './pwa/service.worker.register';
 
 const app = new App({
     openBtn: document.querySelector('#openNav'),
@@ -19,5 +20,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
     app.renderPage();
-    // swRegister();
+    swRegister();
 });
