@@ -8,6 +8,7 @@ const Detail = {
     async render() {
         return `
             <div id="loading"><img src="./images/loading.svg" alt="Loading..."></div>
+            <button id="simpan">Simpan</button>
             <div id="detailcontents"></div>
         `;
     },
@@ -165,6 +166,10 @@ const Detail = {
                 event.stopPropagation();
             });
 
+            document.querySelector('#simpan').addEventListener('click', () => {
+                this.postReview();
+            });
+
             LikeButtonInitiator.init({
                 likeButtonContainer: document.querySelector('#likeButtonContainer'),
                 data: {
@@ -181,6 +186,9 @@ const Detail = {
             document.querySelector('#loading').innerHTML = '';
             document.querySelector('#maincontent').innerHTML = notifError;
         }
+    },
+    async postReview() {
+        await sourceData.addReview('uqzwm2m981kfw1e867', 'Arman', 'komentar 1');
     },
 };
 
