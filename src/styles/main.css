@@ -27,6 +27,17 @@ textarea {
   font-size: 16px;
   padding: 10px;
   margin-top: 20px;
+  width: 80%;
+  max-width: 500px;
+  min-width: 100px;
+  resize: vertical;
+}
+
+.col-review {
+  min-width: 100px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
 }
 
 .btn-kirim {

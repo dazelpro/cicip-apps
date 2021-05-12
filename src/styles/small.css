@@ -1,20 +1,5 @@
 @media only screen and (max-width: 649px) {
-  .col-1 {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .col-4 {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .col-2 {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .col-2-for-review {
+  .col-1, .col-2, .col-4 {
     display: grid;
     grid-template-columns: 1fr;
   }
