@@ -31,6 +31,11 @@ textarea {
   max-width: 500px;
   min-width: 100px;
   resize: vertical;
+  border: 1px solid orange;
+}
+
+.textarea-error {
+  border: 1px solid red !important;
 }
 
 .col-review {

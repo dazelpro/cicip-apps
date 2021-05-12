@@ -135,6 +135,7 @@ const Detail = {
                         </div>
                         <div class="col-review">
                             <textarea name="review" id="reviewValue" rows="5" placeholder="Tulis review kamu disini..."></textarea><br>
+                            <div style="font-size:12px; color: red;" id="errorReview"></div>
                             <button class="btn-kirim" id="kirimReview">Kirim Review</button>
                         </div>
                     </div>
@@ -192,12 +193,17 @@ const Detail = {
         }
     },
     async postReview(id, arr) {
-        const addReview = await sourceData.addReview(id, 'Anonymous', arr);
-        if (addReview.message == 'success') {
-            window.location.reload();
+        if (arr) {
+            const addReview = await sourceData.addReview(id, 'Anonymous', arr);
+            if (addReview.message == 'success') {
+                window.location.reload();
+            } else {
+                // eslint-disable-next-line no-alert
+                alert('Oops, something is wrong!');
+            }
         } else {
-            // eslint-disable-next-line no-alert
-            alert('Oops, something is wrong!');
+            document.getElementById('reviewValue').classList.add('textarea-error');
+            document.querySelector('#errorReview').innerHTML = 'Harap tulis review terlebih dahulu!';
         }
     },
 };
