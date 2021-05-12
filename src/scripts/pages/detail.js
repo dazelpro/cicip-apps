@@ -130,14 +130,14 @@ const Detail = {
                 <div class="wrapper col-1">  
                     <div class="review">
                         <div style="background-color: transparent;">
-                            <span class="review-star-value">0</span> dari 5
+                            <span class="review-star-value">${data.restaurant.rating}</span> dari 5
                             <div class="star">
                                 <img src="./images/star.png" alt="Star Review">
                             </div>
                         </div>
                         <div style="background-color: transparent; max-width: 500px; min-width: 200px;text-align: center; margin: auto;">
-                            <textarea name="" id="" cols="30" rows="5" placeholder="Tulis review kamu disini..." style="width: 100%; resize: vertical;"></textarea><br>
-                            <button class="btn-kirim" id="kirimReview">Kirim</button>
+                            <textarea name="" id="reviewValue" cols="30" rows="5" placeholder="Tulis review kamu disini..." style="width: 100%; resize: vertical;"></textarea><br>
+                            <button class="btn-kirim" id="kirimReview">Kirim Review</button>
                         </div>
                     </div>
                     <div class="mt-50 mb-50">
@@ -171,6 +171,11 @@ const Detail = {
                 event.stopPropagation();
             });
 
+            document.querySelector('#kirimReview').addEventListener('click', () => {
+                const isiReview = document.getElementById('reviewValue').value;
+                this.postReview(data.restaurant.id, isiReview);
+            });
+
             LikeButtonInitiator.init({
                 likeButtonContainer: document.querySelector('#likeButtonContainer'),
                 data: {
@@ -188,9 +193,13 @@ const Detail = {
             document.querySelector('#maincontent').innerHTML = notifError;
         }
     },
-    async postReview() {
-        const addReview = await sourceData.addReview('uqzwm2m981kfw1e867', 'Arman', 'komentar 1');
-        console.log(addReview.message);
+    async postReview(id, arr) {
+        const addReview = await sourceData.addReview(id, 'Anonymous', arr);
+        if (addReview.message == 'success') {
+            window.location.reload();
+        } else {
+            console.log('Oops, something is wrong!');
+        }
     },
 };
 
