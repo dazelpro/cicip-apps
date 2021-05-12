@@ -8,7 +8,6 @@ const Detail = {
     async render() {
         return `
             <div id="loading"><img src="./images/loading.svg" alt="Loading..."></div>
-            <button id="simpan">Simpan</button>
             <div id="detailcontents"></div>
         `;
     },
@@ -97,7 +96,7 @@ const Detail = {
                     
                         <div id="containerFavorite">
                             <div id="titleResto">
-                                <h1>${data.restaurant.name} </h1>
+                                <h1>${data.restaurant.name}</h1>
                             </div>
                             <div id="likeButtonContainer"></div>
                         </div>
@@ -164,10 +163,6 @@ const Detail = {
                 elementBtnSelengkapnya.className = elementBtnSelengkapnya.className.replace(/\bhide\b/g, 'show');
                 elementBtnSembunyi.className = elementBtnSembunyi.className.replace(/\bshow\b/g, 'hide');
                 event.stopPropagation();
-            });
-
-            document.querySelector('#simpan').addEventListener('click', () => {
-                this.postReview();
             });
 
             LikeButtonInitiator.init({
