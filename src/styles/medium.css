@@ -9,6 +9,11 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  .col-2-for-review {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+  }
+
   .logo {
     margin-left: 0;
   }

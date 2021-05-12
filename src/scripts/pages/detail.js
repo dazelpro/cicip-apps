@@ -129,9 +129,15 @@ const Detail = {
                 <div class="review-title">Penilaian:</div>
                 <div class="wrapper col-1">  
                     <div class="review">
-                        <span>${data.restaurant.rating}</span> dari 5
-                        <div class="star">
-                            <img src="./images/star.png" alt="Star Review">
+                        <div style="background-color: transparent;">
+                            <span class="review-star-value">0</span> dari 5
+                            <div class="star">
+                                <img src="./images/star.png" alt="Star Review">
+                            </div>
+                        </div>
+                        <div style="background-color: transparent; max-width: 500px; min-width: 200px;text-align: center; margin: auto;">
+                            <textarea name="" id="" cols="30" rows="5" placeholder="Tulis review kamu disini..." style="width: 100%; resize: vertical;"></textarea><br>
+                            <button class="btn-kirim" id="kirimReview">Kirim</button>
                         </div>
                     </div>
                     <div class="mt-50 mb-50">
