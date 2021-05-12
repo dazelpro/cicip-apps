@@ -134,7 +134,7 @@ const Detail = {
                             <img src="./images/star.png" alt="Star Review">
                         </div>
                         <div class="col-review">
-                            <textarea name="" id="reviewValue" rows="5" placeholder="Tulis review kamu disini..."></textarea><br>
+                            <textarea name="review" id="reviewValue" rows="5" placeholder="Tulis review kamu disini..."></textarea><br>
                             <button class="btn-kirim" id="kirimReview">Kirim Review</button>
                         </div>
                     </div>
@@ -196,7 +196,8 @@ const Detail = {
         if (addReview.message == 'success') {
             window.location.reload();
         } else {
-            console.log('Oops, something is wrong!');
+            // eslint-disable-next-line no-alert
+            alert('Oops, something is wrong!');
         }
     },
 };
