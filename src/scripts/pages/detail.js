@@ -187,7 +187,6 @@ const Detail = {
                 },
             });
         } else {
-            console.log('gagal');
             document.querySelector('#loading').innerHTML = '';
             document.querySelector('#maincontent').innerHTML = notifError;
         }

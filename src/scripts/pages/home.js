@@ -20,23 +20,36 @@ const Home = {
     },
 
     async afterRender() {
-        const resto = await sourceData.listResto();
         let dataList = '';
-        resto.restaurants.forEach((d) => {
-            dataList += `
-            <a href="/#/detail/${d.id}" class="card">
-                <img src="${CONFIG.BASE_IMAGE_URL_SMALL + d.pictureId}" alt="${d.name}">
-                <div class="card-body">
-                    <div class="city">Kota ${d.city}</div>
-                    <div class="name">${d.name}</div>
-                    <div class="rating">⭐ ${d.rating}</div>
-                    <div class="desc">${d.description}</div>
-                </div>
-            </a>
-            `;
-        });
-        document.querySelector('#contentList').innerHTML = dataList;
-        document.querySelector('#loading').innerHTML = '';
+        let notifError = '';
+        notifError += `
+            <div class="error">
+                <img class="img-error" src="./images/error.svg" alt="Error">
+                <h2 class="text-error">Ooops... Ada yang gak beres nih. Sabar ya, Tim kami sedang memperbaikinya.</h2>
+            </div>
+        `;
+
+        const resto = await sourceData.listResto();
+        if (resto.error !== true) {
+            resto.restaurants.forEach((d) => {
+                dataList += `
+                <a href="/#/detail/${d.id}" class="card">
+                    <img src="${CONFIG.BASE_IMAGE_URL_SMALL + d.pictureId}" alt="${d.name}">
+                    <div class="card-body">
+                        <div class="city">Kota ${d.city}</div>
+                        <div class="name">${d.name}</div>
+                        <div class="rating">⭐ ${d.rating}</div>
+                        <div class="desc">${d.description}</div>
+                    </div>
+                </a>
+                `;
+            });
+            document.querySelector('#contentList').innerHTML = dataList;
+            document.querySelector('#loading').innerHTML = '';
+        } else {
+            document.querySelector('#loading').innerHTML = '';
+            document.querySelector('#maincontent').innerHTML = notifError;
+        }
     },
 };
 
