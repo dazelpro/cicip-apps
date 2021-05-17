@@ -198,6 +198,9 @@ body::after {
   .menu-item > .item-icon-menu {
     display: none;
   }
+  .sidenav {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 580px) {
