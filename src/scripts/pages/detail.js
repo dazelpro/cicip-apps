@@ -134,6 +134,7 @@ const Detail = {
                             <img src="./images/star.png" alt="Star Review">
                         </div>
                         <div class="col-review">
+                            <input type="text" name="name" class="input-name" id="reviewName" placeholder="Nama kamu...">
                             <textarea name="review" id="reviewValue" rows="5" placeholder="Tulis review kamu disini..."></textarea><br>
                             <div style="font-size:12px; color: red;" id="errorReview"></div>
                             <button class="btn-kirim" id="kirimReview">Kirim Review</button>
@@ -171,8 +172,9 @@ const Detail = {
             });
 
             document.querySelector('#kirimReview').addEventListener('click', () => {
+                const nameReview = document.getElementById('reviewName').value;
                 const isiReview = document.getElementById('reviewValue').value;
-                this.postReview(data.restaurant.id, isiReview);
+                this.postReview(data.restaurant.id, nameReview, isiReview);
             });
 
             LikeButtonInitiator.init({
@@ -191,9 +193,9 @@ const Detail = {
             document.querySelector('#maincontent').innerHTML = notifError;
         }
     },
-    async postReview(id, arr) {
-        if (arr) {
-            const addReview = await sourceData.addReview(id, 'Anonymous', arr);
+    async postReview(id, name, review) {
+        if (name && review) {
+            const addReview = await sourceData.addReview(id, name, review);
             if (addReview.message == 'success') {
                 window.location.reload();
             } else {
@@ -201,8 +203,9 @@ const Detail = {
                 alert('Oops, something is wrong!');
             }
         } else {
-            document.getElementById('reviewValue').classList.add('textarea-error');
-            document.querySelector('#errorReview').innerHTML = 'Harap tulis review terlebih dahulu!';
+            document.getElementById('reviewName').classList.add('input-error');
+            document.getElementById('reviewValue').classList.add('input-error');
+            document.querySelector('#errorReview').innerHTML = 'Harap lengkapi semua input terlebih dahulu !';
         }
     },
 };
