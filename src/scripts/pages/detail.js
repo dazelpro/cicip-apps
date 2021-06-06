@@ -7,7 +7,7 @@ import LikeButtonInitiator from '../utils/initiator.favorite';
 const Detail = {
     async render() {
         return `
-            <div id="loading"><img src="./images/loading.svg" alt="Loading..."></div>
+            <div id="loading"><img src="./images/loading.svg" alt="Loading..." loading="lazy"></div>
             <div id="detailcontents"></div>
         `;
     },
@@ -25,7 +25,7 @@ const Detail = {
 
         notifError += `
             <div class="error">
-                <img class="img-error" src="./images/error.svg" alt="Error">
+                <img class="img-error" src="./images/error.svg" alt="Error" loading="lazy">
                 <h2 class="text-error">Ooops... Ada yang gak beres nih. Sabar ya, Tim kami sedang memperbaikinya.</h2>
             </div>
         `;
@@ -43,7 +43,7 @@ const Detail = {
                 foodList += `
                     <div class="food-card">
                         <div class="food-card-body">
-                            <img src="./images/foods.jpg" alt="${d.name}">
+                            <img src="./images/foods.jpg" alt="${d.name}" loading="lazy">
                             <span>${d.name}</span>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ const Detail = {
                 drinkList += `
                     <div class="food-card">
                         <div class="food-card-body">
-                            <img src="./images/drinks.jpg" alt="${d.name}">
+                            <img src="./images/drinks.jpg" alt="${d.name}" loading="lazy">
                             <span>${d.name}</span>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ const Detail = {
                 reviewList += `
                 <div class="review-layout" id="ree">
                     <div class="review-image">
-                        <img class="review-user-image" src="./images/user.jpg" alt="User ${d.name || 'Anonymous'}">
+                        <img class="review-user-image" src="./images/user.jpg" alt="User ${d.name || 'Anonymous'}" loading="lazy">
                     </div> 
                     <div class="review-content">
                         <div class="review-user-name">
@@ -90,7 +90,7 @@ const Detail = {
 
                 <div class="wrapper col-2" id="contentbody">
                     <div class="img-banner">
-                        <img src="${CONFIG.BASE_IMAGE_URL_MEDIUM + data.restaurant.pictureId}" alt="Banner Resto">
+                        <img src="${CONFIG.BASE_IMAGE_URL_MEDIUM + data.restaurant.pictureId}" alt="Banner Resto" loading="lazy">
                     </div>
                     <div class="detail-title">
                     
@@ -131,7 +131,7 @@ const Detail = {
                     <div class="review">
                         <span class="review-star-value">${data.restaurant.rating}</span> dari 5
                         <div class="star">
-                            <img src="./images/star.png" alt="Star Review">
+                            <img src="./images/star.png" alt="Star Review" loading="lazy">
                         </div>
                         <div class="col-review">
                             <input type="text" name="name" class="input-name" id="reviewName" placeholder="Nama kamu...">

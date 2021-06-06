@@ -10,7 +10,7 @@ const Home = {
                     <a href="#contentbody">Explore</a>
                 </div>
             </div>
-            <div id="loading"><img src="./images/loading.svg" alt="Loading..."></div>
+            <div id="loading"><img src="./images/loading.svg" alt="Loading..." loading="lazy"></div>
             <div class="section-title" id="contentbody">
                 <h2>Explore Restaurant</h2>
                 <p>Lihat makanan-makanan enak dan pilih yang kamu suka.</p>
@@ -24,7 +24,7 @@ const Home = {
         let notifError = '';
         notifError += `
             <div class="error">
-                <img class="img-error" src="./images/error.svg" alt="Error">
+                <img class="img-error" src="./images/error.svg" alt="Error" loading="lazy">
                 <h2 class="text-error">Ooops... Ada yang gak beres nih. Sabar ya, Tim kami sedang memperbaikinya.</h2>
             </div>
         `;
@@ -34,7 +34,7 @@ const Home = {
             resto.restaurants.forEach((d) => {
                 dataList += `
                 <a href="/#/detail/${d.id}" class="card">
-                    <img src="${CONFIG.BASE_IMAGE_URL_SMALL + d.pictureId}" alt="${d.name}">
+                    <img src="${CONFIG.BASE_IMAGE_URL_SMALL + d.pictureId}" alt="${d.name}" loading="lazy">
                     <div class="card-body">
                         <div class="city">Kota ${d.city}</div>
                         <div class="name">${d.name}</div>

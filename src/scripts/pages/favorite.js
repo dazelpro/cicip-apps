@@ -27,7 +27,7 @@ const Favorite = {
         if (resto.length === 0) {
             notifError += `
                 <div class="error">
-                    <img class="img-error" src="./images/sad.svg" alt="Error">
+                    <img class="img-error" src="./images/sad.svg" alt="Error" loading="lazy">
                     <h2 class="text-error">Maaf... Belum ada Resto yang kamu sukai.</h2>
                 </div>
             `;
@@ -36,7 +36,7 @@ const Favorite = {
             resto.forEach((d) => {
                 listFavorite += `
                 <a href="/#/detail/${d.id}" class="card">
-                    <img src="${CONFIG.BASE_IMAGE_URL_SMALL + d.pictureId}" alt="${d.name}">
+                    <img src="${CONFIG.BASE_IMAGE_URL_SMALL + d.pictureId}" alt="${d.name}" loading="lazy">
                     <div class="card-body">
                         <div class="city">Kota ${d.city}</div>
                         <div class="name">${d.name}</div>
