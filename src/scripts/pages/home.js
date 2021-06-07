@@ -45,11 +45,10 @@ const Home = {
                 `;
             });
             document.querySelector('#contentList').innerHTML = dataList;
-            document.querySelector('#loading').innerHTML = '';
         } else {
-            document.querySelector('#loading').innerHTML = '';
             document.querySelector('#maincontent').innerHTML = notifError;
         }
+        document.querySelector('#loading').innerHTML = '';
     },
 };
 

@@ -198,9 +198,6 @@ const Detail = {
             const addReview = await sourceData.addReview(id, name, review);
             if (addReview.message == 'success') {
                 window.location.reload();
-            } else {
-                // eslint-disable-next-line no-alert
-                alert('Oops, something is wrong!');
             }
         } else {
             document.getElementById('reviewName').classList.add('input-error');
