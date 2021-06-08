@@ -167,7 +167,7 @@ body::after {
 }
 
 .jumbroton > .blur {
-  background: rgba(15, 220, 247, 0.1);
+  background: #0c0c0c87 !important;
   padding: 150px 0px;
 }
 
