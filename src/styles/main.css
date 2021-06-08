@@ -157,18 +157,31 @@ body::after {
   margin-left: 50px;
 }
 
-.jumbroton {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  text-align: center;
-  color: white;
-  height: 100%;
+.jumbrotons {
+  position: relative;
 }
 
-.jumbroton > .blur {
-  background: #0c0c0c87 !important;
-  padding: 150px 0px;
+.jumbrotons > img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.jumbrotons > .blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background: #24242487;
+  height: 500px;
 }
 
 .blur > h1 {
