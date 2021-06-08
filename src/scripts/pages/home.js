@@ -4,7 +4,7 @@ import CONFIG from '../controllers/configuration';
 const Home = {
     async render() {
         return `
-            <div class="jumbroton" style="background-image: url(./images/heros/hero-image_4.jpg);">
+            <div class="jumbroton" style="background-image: url(./images/heros/hero-image-large.jpg);">
                 <div class="blur">
                     <h1>Cicip macam-macam makanan terenak dari berbagai Resto di Nusantara</h1>
                     <a href="#contentbody">Explore</a>
