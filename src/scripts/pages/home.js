@@ -4,7 +4,15 @@ import CONFIG from '../controllers/configuration';
 const Home = {
     async render() {
         return `
-            
+            <div class="jumbrotons">
+                <img sizes="(min-width: 400px) 80vw, 100vw"
+                    srcset="./images/heros/hero-image-small.jpg 400w, ./images/heros/hero-image-large.jpg 1500w"
+                    alt="Hero Element">
+                <div class="blur">
+                    <h1>Cicip macam-macam makanan terenak dari berbagai Resto di Nusantara</h1>
+                    <a href="#contentbody">Explore</a>
+                </div>
+            </div>
             <div id="loading"><img src="./images/loading.svg" alt="Loading..." loading="lazy"></div>
             <div class="section-title" id="contentbody">
                 <h2>Explore Restaurant</h2>
