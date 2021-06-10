@@ -12,11 +12,10 @@ const Favorite = {
             </div>
             <div class="section-title" id="contentbody">
                 <div class="favorite-title">
-                    <h1>Favorite</h1>
-                    <div>Daftar Restoran yang kamu Sukai</div>
+                    <h1 class="fav-h1">Favorite</h1>
+                    <div class="fav-div">Daftar Restoran yang kamu Sukai</div>
                 </div>
                 <div class="wrapper col-4" id="contentList"></div>
-                <div class="no-data"></div>
             </div>
         `;
     },
@@ -24,13 +23,20 @@ const Favorite = {
     async afterRender() {
         const resto = await FavoriteIdb.getAllFavorite();
         let listFavorite = '';
+        let notifError = '';
         if (resto.length === 0) {
-            document.querySelector('.no-data').innerHTML = 'Oops.. Belum ada Resto yang kamu sukai 😞';
+            notifError += `
+                <div class="error">
+                    <img class="img-error" src="./images/sad.svg" alt="Error" loading="lazy">
+                    <h2 class="text-error">Maaf... Belum ada Resto yang kamu sukai.</h2>
+                </div>
+            `;
+            document.querySelector('#maincontent').innerHTML = notifError;
         } else {
             resto.forEach((d) => {
                 listFavorite += `
                 <a href="/#/detail/${d.id}" class="card">
-                    <img src="${CONFIG.BASE_IMAGE_URL_SMALL + d.pictureId}" alt="${d.name}">
+                    <img src="${CONFIG.BASE_IMAGE_URL_SMALL + d.pictureId}" alt="${d.name}" loading="lazy">
                     <div class="card-body">
                         <div class="city">Kota ${d.city}</div>
                         <div class="name">${d.name}</div>

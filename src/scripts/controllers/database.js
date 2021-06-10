@@ -16,8 +16,8 @@ const FavoriteIdb = {
     async getAllFavorite() {
         return (await dbPromise).getAll(OBJECT_STORE_NAME);
     },
-    async putFavorite(movie) {
-        return (await dbPromise).put(OBJECT_STORE_NAME, movie);
+    async putFavorite(restoran) {
+        return (await dbPromise).put(OBJECT_STORE_NAME, restoran);
     },
     async deleteFavorite(id) {
         return (await dbPromise).delete(OBJECT_STORE_NAME, id);

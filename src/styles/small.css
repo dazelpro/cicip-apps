@@ -1,15 +1,5 @@
 @media only screen and (max-width: 649px) {
-  .col-1 {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .col-4 {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .col-2 {
+  .col-1, .col-2, .col-4 {
     display: grid;
     grid-template-columns: 1fr;
   }
@@ -55,8 +45,16 @@
     margin-top: -13px;
   }
 
-  .favorite-title h1, div {
+  .fav-h1, .fav-div {
     text-align: center;
+  }
+
+  .img-error {
+    width: 250px;
+  }
+
+  .text-error {
+    font-size: 18px;
   }
   
 }

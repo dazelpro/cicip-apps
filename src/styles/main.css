@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
-
 *,
 *::before,
 *::after {
@@ -17,6 +15,67 @@ body {
   min-height: 90vh;
   font-family: "Rubik", sans-serif;
   background-color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+}
+
+textarea {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 80%;
+  max-width: 500px;
+  min-width: 100px;
+  resize: vertical;
+  border: 1px solid orange;
+}
+
+.input-name {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  display: block;
+  padding: 10px;
+  margin: 20px auto 0;
+  width: 80%;
+  max-width: 500px;
+  min-width: 100px;
+  border: 1px solid orange;
+}
+
+.input-error {
+  border: 1px solid red !important;
+}
+
+.col-review {
+  min-width: 100px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.btn-kirim {
+  margin-top: 20px;
+  cursor: pointer;
+  width: 150px;
+  padding: 14px 20px;
+  background: linear-gradient(to right, #ec841b 0%, #ffcb0f 100%) !important;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+body::after {
+  content: "";
+  display: block;
+  height: 50px;
+}
+
+#loading {
+  text-align: center;
 }
 
 .skip-link {
@@ -98,18 +157,31 @@ body {
   margin-left: 50px;
 }
 
-.jumbroton {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  text-align: center;
-  color: white;
-  height: 100%;
+.jumbrotons {
+  position: relative;
 }
 
-.jumbroton > .blur {
-  background: rgba(15, 220, 247, 0.1);
-  padding: 150px 0px;
+.jumbrotons > img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.jumbrotons > .blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background: #24242487;
+  height: 500px;
 }
 
 .blur > h1 {
@@ -135,6 +207,9 @@ body {
 
 @media only screen and (min-width: 579px) {
   .menu-item > .item-icon-menu {
+    display: none;
+  }
+  .sidenav {
     display: none;
   }
 }
@@ -163,7 +238,7 @@ p {
 }
 
 #contentList {
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 @media only screen and (min-width: 1600px) {
@@ -312,6 +387,9 @@ footer {
   background-color: #0f3057;
   padding: 0;
   text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 footer > div {
@@ -480,8 +558,8 @@ footer > div {
   font-size: 16px;
 }
 
-.review span {
-  font-size: 28px !important;
+.review-star-value {
+  font-size: 38px !important;
   font-weight: 600;
 }
 
@@ -603,9 +681,16 @@ footer > div {
   margin-bottom: 40px;
 }
 
-.no-data{
-  font-size: 30px;
-  font-weight: 600;
+.error {
+  margin: auto;
   text-align: center;
-  padding: 50px 0 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.img-error {
+  width: 500px;
 }
